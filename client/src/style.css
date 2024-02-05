@@ -22,3 +22,28 @@ ul li :hover{
     height: 40px;
     border-radius: 50%;
 }
+
+.emp_det_image {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+}
+
+.profile_name{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 10px;
+    padding: 3px;
+    font-size: 35px;
+    font-weight: bold;
+    background: cornsilk;
+}
+
+.info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 5rem;
+}
+
+

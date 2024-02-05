@@ -4,7 +4,7 @@ import axios from 'axios'
 import "../style.css"
 import { useNavigate } from 'react-router-dom'
 
-function Login() {
+function EmployeeLogin() {
 
     const [values, setValues] = useState({
         email: '',
@@ -16,11 +16,11 @@ function Login() {
     axios.defaults.withCredentials = true;
     const handleSubmit = (event)=>{
         event.preventDefault()
-        axios.post('http://localhost:3000/auth/adminlogin', values)
+        axios.post('http://localhost:3000/employee/employee_login', values)
         .then(result => {
             if(result.data.loginStatus){
                 localStorage.setItem("valid", true);
-                navigate('/dashboard')
+                navigate('/employee_detail/'+result.data.id)
             }else{
                 setError(result.data.Error)
             }
@@ -30,11 +30,11 @@ function Login() {
 
   return (
     <div className='d-flex justify-content-center align-items-center vh-100 loginPage'>
-        <div className='p-3 rounded-2 w-25 border loginForm'>
-            <div className='text-warning '>
+        <div className='p-3 rounded-3 w-25 border loginForm'>
+            <div className='text-warning text-center'>
                 {error && error}
             </div>
-            <h2 className='text-center'>Admin Login Page</h2>
+            <h2 className='text-center'>Employee Login Page</h2>
             <form onSubmit={handleSubmit}>
                 <div className='mb-3'>
                     <label htmlFor="email"><strong>Email:</strong></label>
@@ -56,4 +56,4 @@ function Login() {
   )
 }
 
-export default Login
+export default EmployeeLogin
